@@ -38,7 +38,7 @@ export default function OfferPage() {
       return;
     }
 
-    const { error: providerError } = await supabase
+    const { data: providerProfile, error: providerError } = await supabase
       .from("provider_profiles")
       .upsert(
         {
@@ -50,11 +50,15 @@ export default function OfferPage() {
         {
           onConflict: "user_id",
         }
-      );
+      )
+      .select("id")
+      .single();
 
-    if (providerError) {
+    if (providerError || !providerProfile) {
       console.error("PROVIDER PROFILE ERROR:", providerError);
-      setError(providerError.message);
+      setError(
+        providerError?.message || "Could not create provider profile."
+      );
       setLoading(false);
       return;
     }
@@ -62,7 +66,7 @@ export default function OfferPage() {
     const { error: serviceError } = await supabase
       .from("services")
       .insert({
-        provider_id: user.id,
+        provider_id: providerProfile.id,
         name: serviceName.trim(),
         description: description.trim(),
         category: category.trim() || null,
