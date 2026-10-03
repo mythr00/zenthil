@@ -1,101 +1,87 @@
-import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <main className="min-h-screen bg-white text-slate-950">
+      <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-6">
+        <Link href="/" className="text-2xl font-bold tracking-tight">
+          ZENTHIL
+        </Link>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+        <div className="flex items-center gap-3">
+          <Link
+            href="/login"
+            className="rounded-xl px-4 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100"
           >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            Log in
+          </Link>
+
+          <Link
+            href="/signup"
+            className="rounded-xl bg-slate-950 px-5 py-2.5 text-sm font-semibold text-white hover:bg-slate-800"
           >
-            Read our docs
-          </a>
+            Get started
+          </Link>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </nav>
+
+      <section className="mx-auto flex max-w-6xl flex-col items-center px-6 pb-24 pt-20 text-center">
+        <div className="mb-6 rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-medium text-slate-600">
+          Find the right people to get things done
+        </div>
+
+        <h1 className="max-w-4xl text-5xl font-bold tracking-tight sm:text-6xl lg:text-7xl">
+          From idea to done.
+        </h1>
+
+        <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
+          ZENTHIL connects people who need services with people who offer them.
+          Describe what you need, discover the right providers, and connect
+          directly.
+        </p>
+
+        <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+          <Link
+            href="/service"
+            className="rounded-2xl bg-slate-950 px-8 py-4 text-base font-semibold text-white shadow-sm hover:bg-slate-800"
+          >
+            I need a service
+          </Link>
+
+          <Link
+            href="/offer"
+            className="rounded-2xl border border-slate-300 bg-white px-8 py-4 text-base font-semibold text-slate-900 hover:bg-slate-50"
+          >
+            I offer a service
+          </Link>
+        </div>
+
+        <div className="mt-20 grid w-full max-w-4xl gap-6 text-left md:grid-cols-3">
+          <div className="rounded-2xl border border-slate-200 p-6">
+            <div className="text-2xl">🔎</div>
+            <h2 className="mt-4 font-semibold">Describe what you need</h2>
+            <p className="mt-2 text-sm leading-6 text-slate-600">
+              Tell ZENTHIL what you&apos;re looking for in your own words.
+            </p>
+          </div>
+
+          <div className="rounded-2xl border border-slate-200 p-6">
+            <div className="text-2xl">🤝</div>
+            <h2 className="mt-4 font-semibold">Discover providers</h2>
+            <p className="mt-2 text-sm leading-6 text-slate-600">
+              Find people and businesses offering the service you need.
+            </p>
+          </div>
+
+          <div className="rounded-2xl border border-slate-200 p-6">
+            <div className="text-2xl">💬</div>
+            <h2 className="mt-4 font-semibold">Connect directly</h2>
+            <p className="mt-2 text-sm leading-6 text-slate-600">
+              Message providers and arrange the details directly with them.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
   );
 }
